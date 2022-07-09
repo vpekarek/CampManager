@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.ResponseCompression;
 using MongoDb.DatabaseProvider;
 var builder = WebApplication.CreateBuilder(args);
 
