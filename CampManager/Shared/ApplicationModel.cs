@@ -7,7 +7,7 @@ public class ApplicationModel
     [BsonId]
     public Guid Id { get; set; }
     public Guid CampId { get; set; }
-    public DateTime Created { get; set; }
+    public DateTime Created { get; set; } = DateTime.Now;
     public ApplicationStatusType Status { get; set; } = ApplicationStatusType.New;
     public DateTime? Resolved { get; set; }
     public ParticipantModel[] Participants { get; set; } = Array.Empty<ParticipantModel>();
