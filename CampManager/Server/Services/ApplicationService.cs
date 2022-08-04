@@ -1,21 +1,38 @@
 ﻿using CampManager.Server.Model;
+using MongoDb.DatabaseProvider;
 
 namespace CampManager.Server.Services;
 
 public class ApplicationService : IApplicationService
 {
-    public Task AddAsync(Application model)
+    private readonly MongoDbContext _dbContext;
+
+    public ApplicationService(MongoDbContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext;
+    }
+    public async Task AddAsync(Application model)
+    {
+        await _dbContext.Applications.InsertRecordAsync(model);
     }
 
-    public Task ApproveAsync(Guid applicationId)
+
+    public async Task ApproveAsync(Guid applicationId)
     {
-        throw new NotImplementedException();
+        var application = await _dbContext.Applications.LoadRecordByIdAsync(applicationId);
+        application.Status = Shared.Types.ApplicationStatusType.Accepted;
+        await _dbContext.Applications.UpsertRecordAsync(applicationId, application);
     }
 
-    public Task RejectAsync(Guid applicationId)
+    public async Task<Application> GetAsync(Guid applicationId)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Applications.LoadRecordByIdAsync(applicationId);
+    }
+
+    public async Task RejectAsync(Guid applicationId)
+    {
+        var application = await _dbContext.Applications.LoadRecordByIdAsync(applicationId);
+        application.Status = Shared.Types.ApplicationStatusType.Rejected;
+        await _dbContext.Applications.UpsertRecordAsync(applicationId, application);
     }
 }

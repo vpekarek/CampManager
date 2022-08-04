@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampManager.Client", "CampM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampManager.Shared", "CampManager\Shared\CampManager.Shared.csproj", "{EE40AC5C-16C5-4F94-8675-D6ABBB788E4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampManager.Tests", "CampManager.Tests\CampManager.Tests.csproj", "{63DC8221-E63E-4B4E-8D17-0F4E22788643}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampManager.UnitTests", "CampManager.UnitTests\CampManager.UnitTests.csproj", "{6888B194-E524-42BF-B3CE-5C3BCDEA29D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{EE40AC5C-16C5-4F94-8675-D6ABBB788E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE40AC5C-16C5-4F94-8675-D6ABBB788E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE40AC5C-16C5-4F94-8675-D6ABBB788E4A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63DC8221-E63E-4B4E-8D17-0F4E22788643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63DC8221-E63E-4B4E-8D17-0F4E22788643}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63DC8221-E63E-4B4E-8D17-0F4E22788643}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63DC8221-E63E-4B4E-8D17-0F4E22788643}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6888B194-E524-42BF-B3CE-5C3BCDEA29D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6888B194-E524-42BF-B3CE-5C3BCDEA29D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6888B194-E524-42BF-B3CE-5C3BCDEA29D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6888B194-E524-42BF-B3CE-5C3BCDEA29D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
