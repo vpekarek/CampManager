@@ -1,8 +1,13 @@
+using CampManager.Server.Serializers;
 using MongoDb.DatabaseProvider;
+using MongoDB.Bson.Serialization;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Register serialization provider.
+BsonSerializer.RegisterSerializationProvider(new DateOnlyBsonProvider());
 
+// Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddMongoDbProvider("CampManager");

@@ -1,5 +1,7 @@
 ﻿using CampManager.Server.Model;
+using CampManager.Server.Serializers;
 using CampManager.Server.Services;
+using MongoDB.Bson.Serialization;
 
 namespace CampManager.Tests;
 
@@ -10,6 +12,7 @@ public class ApplicationTest
     [SetUp]
     public void Setup()
     {
+        BsonSerializer.RegisterSerializationProvider(new DateOnlyBsonProvider());
         _applicationService = new ApplicationService(new MongoDb.DatabaseProvider.MongoDbContext("CampManager"));
     }
 

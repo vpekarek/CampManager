@@ -16,11 +16,10 @@ public class ApplicationService : IApplicationService
         await _dbContext.Applications.InsertRecordAsync(model);
     }
 
-
     public async Task ApproveAsync(Guid applicationId)
     {
         var application = await _dbContext.Applications.LoadRecordByIdAsync(applicationId);
-        application.Status = Shared.Types.ApplicationStatusType.Accepted;
+        application.Approve();
         await _dbContext.Applications.UpsertRecordAsync(applicationId, application);
     }
 
@@ -32,7 +31,7 @@ public class ApplicationService : IApplicationService
     public async Task RejectAsync(Guid applicationId)
     {
         var application = await _dbContext.Applications.LoadRecordByIdAsync(applicationId);
-        application.Status = Shared.Types.ApplicationStatusType.Rejected;
+        application.Reject();
         await _dbContext.Applications.UpsertRecordAsync(applicationId, application);
     }
 }
