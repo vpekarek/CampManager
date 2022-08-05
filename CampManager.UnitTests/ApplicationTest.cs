@@ -1,6 +1,7 @@
 ﻿using CampManager.Server.Model;
 using CampManager.Server.Serializers;
 using CampManager.Server.Services;
+using CampManager.Shared.Application;
 using MongoDB.Bson.Serialization;
 
 namespace CampManager.Tests;
@@ -13,7 +14,7 @@ public class ApplicationTest
     public void Setup()
     {
         BsonSerializer.RegisterSerializationProvider(new DateOnlyBsonProvider());
-        _applicationService = new ApplicationService(new MongoDb.DatabaseProvider.MongoDbContext("CampManager"));
+        _applicationService = new ApplicationService(new MongoDb.DatabaseProvider.MongoDbContext("CampManager_Test"));
     }
 
     [Test]
@@ -60,7 +61,7 @@ public class ApplicationTest
             PostalCode = "11000",
             City = "Praha 1"
         };
-        var participant = new Shared.ApplicationModel.ParticipantModel
+        var participant = new ApplicationParticipantModel
         {
             DateOfBirth = new DateOnly(2014, 12, 31),
             FirstName = "Jan",
@@ -80,6 +81,7 @@ public class ApplicationTest
 
         var application = new Server.Model.Application
         {
+            CampId = Guid.NewGuid(),
             Participants = new[] { participant },
             Representatives = new[] { representative },
         };

@@ -1,4 +1,6 @@
-﻿namespace CampManager.Server.Model;
+﻿using CampManager.Shared.Participant;
 
-public class Participant : Shared.ParticipantModel
+namespace CampManager.Server.Model;
+
+public class Participant : ParticipantModel
 { }

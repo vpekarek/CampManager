@@ -1,7 +1,8 @@
-﻿using MongoDb.DatabaseProvider;
+﻿using CampManager.Shared.Application;
+using MongoDb.DatabaseProvider;
 namespace CampManager.Server.Model;
 
 [MongoDbCollection]
-public class Application : Shared.ApplicationModel
+public class Application : ApplicationModel
 {
 }

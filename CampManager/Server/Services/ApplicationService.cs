@@ -1,4 +1,5 @@
 ﻿using CampManager.Server.Model;
+using FluentValidation;
 using MongoDb.DatabaseProvider;
 
 namespace CampManager.Server.Services;
@@ -13,6 +14,9 @@ public class ApplicationService : IApplicationService
     }
     public async Task AddAsync(Application model)
     {
+        var validator = new Validators.ApplicationValidator();
+        validator.ValidateAndThrow(model);
+
         await _dbContext.Applications.InsertRecordAsync(model);
     }
 

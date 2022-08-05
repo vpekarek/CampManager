@@ -1,7 +1,7 @@
 ﻿using CampManager.Shared.Types;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace CampManager.Shared;
+namespace CampManager.Shared.Participant;
 
 public class ParticipantModel : PersonModel
 {
@@ -22,28 +22,8 @@ public class ParticipantModel : PersonModel
     public TransportationType Transportation { get; set; } = TransportationType.Collective;
     public SwimmerLevelType Swimmer { get; set; } = SwimmerLevelType.None;
     public string Accomodation { get; set; } = string.Empty;
-    public MedicalModel MedicalInfo { get; set; } = new();
-    public List<TransferModel> Transfers { get; set; } = new();
+    public ParticipantMedicalModel MedicalInfo { get; set; } = new();
+    public List<ParticipantTransferModel> Transfers { get; set; } = new();
     public List<string> Files { get; set; } = new();
-
     public List<Guid> RepresentativeIds { get; set; } = new();
-
-    public class TransferModel
-    {
-        public DateOnly Date { get; set; }
-        public TransferDirectionType Direction { get; set; }
-        public FoodType LastFood { get; set; }
-        public bool IsRequestedByRepresentative { get; set; }
-    }
-
-    public class MedicalModel
-    {
-        public bool IsCheckedByParamedic { get; set; }
-        public string Alergies { get; set; } = string.Empty;
-        public bool DrugsByParamedic { get; set; }
-        public string DrugsOnMorning { get; set; } = string.Empty;
-        public string DrugsOnEvening { get; set; } = string.Empty;
-        public string DrugsAtNight { get; set; } = string.Empty;
-        public string Note { get; set; } = string.Empty;
-    }
 }
